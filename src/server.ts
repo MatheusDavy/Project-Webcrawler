@@ -1,13 +1,15 @@
 import { app } from "./app";
-import { InspectUrlUseCase } from "./use-cases/crawl/inspect-url";
+import { InspectMercadoLivreUseCase } from "./use-cases/crawl/inspect-mercado-livre";
+import { InspectZattiniUseCase } from "./use-cases/crawl/inspect-zattini";
 
 app
   .listen({
     port: 9876,
   })
   .then(() => {
-    new InspectUrlUseCase().execute()
     console.log("Server is running 🚀");
+    new InspectMercadoLivreUseCase().execute()
+    new InspectZattiniUseCase().execute();
   })
   .catch(() => {
     process.exit();
